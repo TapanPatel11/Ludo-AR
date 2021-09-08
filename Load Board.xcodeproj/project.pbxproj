@@ -7,25 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C00DEA926E8FFC10058790B /* LudoBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEA826E8FFC10058790B /* LudoBoardController.swift */; };
+		1C00DEAC26E900450058790B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEAB26E900450058790B /* Constants.swift */; };
 		1C238A8B248EA85F005279BF /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C238A8A248EA85F005279BF /* Players.swift */; };
+		1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D83E226E7BA0C006C1B67 /* Player.swift */; };
 		1C8FD91E2482676000FD5A5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FD91D2482676000FD5A5B /* AppDelegate.swift */; };
 		1C8FD9202482676000FD5A5B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD91F2482676000FD5A5B /* art.scnassets */; };
-		1C8FD9222482676000FD5A5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FD9212482676000FD5A5B /* ViewController.swift */; };
+		1C8FD9222482676000FD5A5B /* ViewController-Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FD9212482676000FD5A5B /* ViewController-Copy.swift */; };
 		1C8FD9252482676000FD5A5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD9232482676000FD5A5B /* Main.storyboard */; };
 		1C8FD9272482676100FD5A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD9262482676100FD5A5B /* Assets.xcassets */; };
 		1C8FD92A2482676100FD5A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD9282482676100FD5A5B /* LaunchScreen.storyboard */; };
+		1CA0B97F26E8FA6100FEAE85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */; };
+		1CA0B98226E8FB6F00FEAE85 /* LudoBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0B98126E8FB6F00FEAE85 /* LudoBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C00DEA826E8FFC10058790B /* LudoBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudoBoardController.swift; sourceTree = "<group>"; };
+		1C00DEAB26E900450058790B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C238A8A248EA85F005279BF /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		1C6D83E226E7BA0C006C1B67 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1C8FD91A2482676000FD5A5B /* Load Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Load Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8FD91D2482676000FD5A5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C8FD91F2482676000FD5A5B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		1C8FD9212482676000FD5A5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1C8FD9212482676000FD5A5B /* ViewController-Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController-Copy.swift"; sourceTree = "<group>"; };
 		1C8FD9242482676000FD5A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C8FD9262482676100FD5A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C8FD9292482676100FD5A5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C8FD92B2482676100FD5A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CA0B98126E8FB6F00FEAE85 /* LudoBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudoBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +69,44 @@
 			isa = PBXGroup;
 			children = (
 				1C8FD91D2482676000FD5A5B /* AppDelegate.swift */,
-				1C8FD91F2482676000FD5A5B /* art.scnassets */,
-				1C8FD9212482676000FD5A5B /* ViewController.swift */,
-				1C238A8A248EA85F005279BF /* Players.swift */,
-				1C8FD9232482676000FD5A5B /* Main.storyboard */,
 				1C8FD9262482676100FD5A5B /* Assets.xcassets */,
-				1C8FD9282482676100FD5A5B /* LaunchScreen.storyboard */,
+				1C8FD91F2482676000FD5A5B /* art.scnassets */,
+				1CA0B98426E8FB8500FEAE85 /* Model */,
+				1CA0B98726E8FBA800FEAE85 /* VIew */,
+				1CA0B98626E8FB9200FEAE85 /* Controller */,
 				1C8FD92B2482676100FD5A5B /* Info.plist */,
 			);
 			path = "Load Board";
+			sourceTree = "<group>";
+		};
+		1CA0B98426E8FB8500FEAE85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C6D83E226E7BA0C006C1B67 /* Player.swift */,
+				1C238A8A248EA85F005279BF /* Players.swift */,
+				1CA0B98126E8FB6F00FEAE85 /* LudoBoard.swift */,
+				1C00DEAB26E900450058790B /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CA0B98626E8FB9200FEAE85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1C8FD9212482676000FD5A5B /* ViewController-Copy.swift */,
+				1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */,
+				1C00DEA826E8FFC10058790B /* LudoBoardController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1CA0B98726E8FBA800FEAE85 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				1C8FD9232482676000FD5A5B /* Main.storyboard */,
+				1C8FD9282482676100FD5A5B /* LaunchScreen.storyboard */,
+			);
+			path = VIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,11 +136,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Tapan Patel";
 				TargetAttributes = {
 					1C8FD9192482676000FD5A5B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -142,9 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA0B97F26E8FA6100FEAE85 /* ViewController.swift in Sources */,
+				1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */,
+				1C00DEA926E8FFC10058790B /* LudoBoardController.swift in Sources */,
 				1C238A8B248EA85F005279BF /* Players.swift in Sources */,
-				1C8FD9222482676000FD5A5B /* ViewController.swift in Sources */,
+				1C8FD9222482676000FD5A5B /* ViewController-Copy.swift in Sources */,
+				1CA0B98226E8FB6F00FEAE85 /* LudoBoard.swift in Sources */,
 				1C8FD91E2482676000FD5A5B /* AppDelegate.swift in Sources */,
+				1C00DEAC26E900450058790B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +241,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -257,6 +303,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -293,14 +340,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AM62T43HTX;
 				INFOPLIST_FILE = "Load Board/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tapanpatel.Load-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -312,14 +359,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AM62T43HTX;
 				INFOPLIST_FILE = "Load Board/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tapanpatel.Load-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
