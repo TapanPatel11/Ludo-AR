@@ -27,16 +27,20 @@ struct LudoBoardController
         {
             boardNode = ludoScene.rootNode.childNode(withName: Constants.Nodes.LudoBoardNode, recursively: true)!
            ludoBoard = boardNode
+            ludoBoard.name = "LudoBoardNode"
         }
     }
     
-    mutating func initializeLudoBoard(withNode node:SCNNode, andAnchor anchor:ARPlaneAnchor)
+    mutating func initializeLudoBoard(withNode node:SCNNode,withPosition position:SCNVector3)
     {
         if !isBoardLoaded
         {
-            ludoBoard.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+            
+            ludoBoard.position = position//SCNVector3(anchor.center.x, 0, anchor.center.z)
             node.addChildNode(self.ludoBoard)
             isBoardLoaded=true
+            
+           
             print("Board Loaded")
         }
         else{

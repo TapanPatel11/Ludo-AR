@@ -13,9 +13,12 @@ struct Constants
     struct Scenes {
         static let ludoBoardScene = "art.scnassets/LudoBoard.scn"
         static let rootScene = "art.scnassets/RootScene.scn"
+        static let DragonBallScene = "art.scnassets/Dragon.scn"
     }
     struct Nodes {
-        static let LudoBoardNode = "LudoBoard"
+        static let LudoBoardNode = "LudoRootNode"
+        static let DragonBallNode = "Dragon_Balls_0"
+        static let detectedNode = "Detected node"
 
     }
 }

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		1C00DEA926E8FFC10058790B /* LudoBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEA826E8FFC10058790B /* LudoBoardController.swift */; };
 		1C00DEAC26E900450058790B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEAB26E900450058790B /* Constants.swift */; };
+		1C00DEAF26E923850058790B /* DragonBallsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEAE26E923850058790B /* DragonBallsController.swift */; };
 		1C238A8B248EA85F005279BF /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C238A8A248EA85F005279BF /* Players.swift */; };
 		1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D83E226E7BA0C006C1B67 /* Player.swift */; };
+		1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */; };
+		1C78082226EA639600DC5B12 /* ViewController+ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */; };
 		1C8FD91E2482676000FD5A5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FD91D2482676000FD5A5B /* AppDelegate.swift */; };
 		1C8FD9202482676000FD5A5B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD91F2482676000FD5A5B /* art.scnassets */; };
 		1C8FD9222482676000FD5A5B /* ViewController-Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FD9212482676000FD5A5B /* ViewController-Copy.swift */; };
@@ -24,8 +27,11 @@
 /* Begin PBXFileReference section */
 		1C00DEA826E8FFC10058790B /* LudoBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudoBoardController.swift; sourceTree = "<group>"; };
 		1C00DEAB26E900450058790B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1C00DEAE26E923850058790B /* DragonBallsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallsController.swift; sourceTree = "<group>"; };
 		1C238A8A248EA85F005279BF /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1C6D83E226E7BA0C006C1B67 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Gestures.swift"; sourceTree = "<group>"; };
+		1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNView.swift"; sourceTree = "<group>"; };
 		1C8FD91A2482676000FD5A5B /* Load Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Load Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8FD91D2482676000FD5A5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C8FD91F2482676000FD5A5B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 				1C8FD9212482676000FD5A5B /* ViewController-Copy.swift */,
 				1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */,
 				1C00DEA826E8FFC10058790B /* LudoBoardController.swift */,
+				1C00DEAE26E923850058790B /* DragonBallsController.swift */,
+				1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */,
+				1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,7 +197,10 @@
 				1C238A8B248EA85F005279BF /* Players.swift in Sources */,
 				1C8FD9222482676000FD5A5B /* ViewController-Copy.swift in Sources */,
 				1CA0B98226E8FB6F00FEAE85 /* LudoBoard.swift in Sources */,
+				1C00DEAF26E923850058790B /* DragonBallsController.swift in Sources */,
+				1C78082226EA639600DC5B12 /* ViewController+ARSCNView.swift in Sources */,
 				1C8FD91E2482676000FD5A5B /* AppDelegate.swift in Sources */,
+				1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */,
 				1C00DEAC26E900450058790B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
