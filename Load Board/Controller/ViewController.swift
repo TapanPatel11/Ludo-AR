@@ -16,6 +16,7 @@ class ViewController: UIViewController{
     
     var ludoBoardManager = LudoBoardController()
     var dragonBallManager:DragonBallsController?
+    var playerManager = PlayerController()
     var mainNode :SCNNode?
     
 //MARK: - ViewDidLoad

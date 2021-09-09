@@ -38,11 +38,18 @@ extension ViewController
         {
             ludoBoardManager.initializeLudoBoard(withNode: mainNode!, withPosition:mainNode!.position)
             dragonBallManager = DragonBallsController(with: ludoBoardManager.ludoBoard, and: mainNode!.position, addInScene: sceneView)
-            
+            playerManager.createRedArmy(ludoBoard: ludoBoardManager.ludoBoard)
+            playerManager.createGreenArmy(ludoBoard: ludoBoardManager.ludoBoard)
+//            ludoBoardManager.ludoBoard.enumerateChildNodes { (child, nil) in
+//                print(child.name)
+//            }
+//            
         }
         else
         {
-            print("Board Already Loaded!")
+            
+            
+            //print("Board Already Loaded!")
         }
         
     }

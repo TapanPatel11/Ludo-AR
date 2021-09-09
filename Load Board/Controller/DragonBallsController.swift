@@ -24,12 +24,13 @@ struct DragonBallsController
             if let ballNode = DBScene.rootNode.childNode(withName: "\(Constants.Nodes.DragonBallNode)\(i)", recursively: false)
             {
 //                ballNode.isHidden = false
-                ballNode.position = position
-                ballNode.position.y = position.y + 0.05
+//                ballNode.position = position
+//                ballNode.position.y = position.y + 0.05
+                ballNode.position = SCNVector3(0,0.1,0)
                 ballNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
                 
                 dragonBalls += [ballNode]
-                print("\(ballNode.name!) added to arrays")
+               // print("\(ballNode.name!) added to arrays")
 
             }
             else
@@ -41,7 +42,7 @@ struct DragonBallsController
         for ball in dragonBalls
         {
             ludoBoardNode.addChildNode(ball)
-            print("\(ball.name!) added to scene")
+           // print("\(ball.name!) added to scene")
         }
         
      
