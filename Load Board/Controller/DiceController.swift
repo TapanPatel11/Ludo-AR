@@ -11,12 +11,14 @@ import ARKit
 import SceneKit
 struct DiceController
 {
-    var rollDice = true
-    var diceNumber = 1
+    var rollDice:Bool
+    var diceNumber:Int
     var dragonBallManager : DragonBallsController
-    
     init(ludoBoard:SCNNode) {
+        rollDice = true
+        diceNumber = 1
         dragonBallManager = DragonBallsController(with: ludoBoard)
+        
     }
     
     func nodeTappedIsDragonballs(tappedNode : String) -> Bool
@@ -27,10 +29,15 @@ struct DiceController
     
     mutating func runDice(randomDiceNumber : Int)
     {
-        print("Dice number : \(randomDiceNumber)")
-        diceNumber = randomDiceNumber-1
-        dragonBallManager.animateBall(nextBallIndex: diceNumber)
+        if rollDice
+        {
+//            print("Dice Rolled : \(randomDiceNumber)")
+            diceNumber = randomDiceNumber
+            dragonBallManager.animateBall(nextBallIndex: diceNumber-1)
+            //rollDice = gameLogicManager.checkIfToRollDice()
+            
+        }
         
-
+        
     }
 }

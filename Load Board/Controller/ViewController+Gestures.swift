@@ -20,11 +20,11 @@ extension ViewController
         {
             if GameController.isGameBoardLoaded, mainNode != nil
             {
-                let MainNode = GameManager!.ludoBoardManager.ludoBoard
-                let pinchScaleX: CGFloat = gestureRecognizer.scale * CGFloat((MainNode.scale.x))
-                let pinchScaleY: CGFloat = gestureRecognizer.scale * CGFloat((MainNode.scale.y))
-                let pinchScaleZ: CGFloat = gestureRecognizer.scale * CGFloat((MainNode.scale.z))
-                MainNode.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+                let MainNode = gameLogicManager?.gameManager.ludoBoardManager.ludoBoard
+                let pinchScaleX: CGFloat = gestureRecognizer.scale * CGFloat((MainNode!.scale.x))
+                let pinchScaleY: CGFloat = gestureRecognizer.scale * CGFloat((MainNode!.scale.y))
+                let pinchScaleZ: CGFloat = gestureRecognizer.scale * CGFloat((MainNode!.scale.z))
+                MainNode!.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
             }
             gestureRecognizer.scale = 1
             
@@ -77,7 +77,8 @@ extension ViewController
     @objc func handleTap( recognizer: UITapGestureRecognizer) {
         if  mainNode != nil, GameController.isGameBoardLoaded == false
         {
-            GameManager = GameController(mainNode: mainNode!)
+            gameLogicManager = GameLogicController(node: mainNode!)
+            //            GameManager = GameController(mainNode: mainNode!)
             GameController.isGameBoardLoaded = true
             print("Game Loaded Successfully")
         }
@@ -89,31 +90,34 @@ extension ViewController
             if !resultsOf3dTap.isEmpty
             {
                 guard let tapResultNode = resultsOf3dTap.first?.node else {return}
-                switch GameManager?.whoseTurn {
+                switch GameController.whoseTurn {
                 
                 case .Red:
-                    //print("Move Red Army Player")
                     if let armyNode = tapResultNode.name, armyNode.contains(Constants.Army.red)
                     {
-                       // print("player Tapped : \(armyNode) of Army : \(Constants.Army.red)")
-                        GameManager?.movePlayer(army: Constants.Army.red, playerName : armyNode)
-                       // print("Move Red Army Player")
+                        print("\(armyNode) selected")
+                        let playerIndex = armyNode.last!.wholeNumberValue! - 1
+
+                        gameLogicManager?.handlePlayerMovement(armyType: .Red, playerIndex: playerIndex)
                     }
                 case .Green:
                     if let armyNode = tapResultNode.name, armyNode.contains(Constants.Army.green)
                     {
-                        print("player Tapped : \(armyNode) of Army : \(Constants.Army.green)")
-                        GameManager?.movePlayer(army: Constants.Army.green, playerName : armyNode)
-                        print("Move Green Army Player")
+                        print("\(armyNode) selected")
+                        let playerIndex = armyNode.last!.wholeNumberValue! - 1
+                        
+                        gameLogicManager?.handlePlayerMovement(armyType: .Green, playerIndex: playerIndex)
+                        
+                        
                     }
                 case .Dice:
-                    if let ballName = tapResultNode.name, GameManager!.diceManager.nodeTappedIsDragonballs(tappedNode: ballName)
+                    if let ballName = tapResultNode.name,                         gameLogicManager!.gameManager.diceManager.nodeTappedIsDragonballs(tappedNode: ballName)
                     {
-                        GameManager?.diceManager.runDice(randomDiceNumber: Int.randomDiceNumber)
-                        print("Roll Dice")
+                        print("Rolling Dice")
+                        gameLogicManager?.gameManager.diceManager.runDice(randomDiceNumber: Int.randomDiceNumber)
+                        gameLogicManager?.checkIfToRollDice()
                     }
-                default:
-                    print("Default")
+                    
                 }
                 
             }

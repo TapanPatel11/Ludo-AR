@@ -19,7 +19,8 @@ class ViewController: UIViewController{
 //    var ludoBoardManager = LudoBoardController()
 //    var diceManager:DiceController?
 //    var playerManager = PlayerController()
-    var GameManager:GameController?
+//    var GameManager:GameController?
+    var gameLogicManager : GameLogicController?
     var mainNode :SCNNode?
     
 //MARK: - ViewDidLoad

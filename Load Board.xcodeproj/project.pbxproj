@@ -13,6 +13,7 @@
 		1C235D0126EB3DC50099937D /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C235D0026EB3DC50099937D /* DiceController.swift */; };
 		1C238A8B248EA85F005279BF /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C238A8A248EA85F005279BF /* Players.swift */; };
 		1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D83E226E7BA0C006C1B67 /* Player.swift */; };
+		1C71847A26EB9D9B002F6743 /* GameLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71847926EB9D9B002F6743 /* GameLogicController.swift */; };
 		1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */; };
 		1C78082226EA639600DC5B12 /* ViewController+ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */; };
 		1C78082526EA720600DC5B12 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78082426EA720600DC5B12 /* PlayerController.swift */; };
@@ -34,6 +35,7 @@
 		1C235D0026EB3DC50099937D /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		1C238A8A248EA85F005279BF /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1C6D83E226E7BA0C006C1B67 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1C71847926EB9D9B002F6743 /* GameLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicController.swift; sourceTree = "<group>"; };
 		1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Gestures.swift"; sourceTree = "<group>"; };
 		1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNView.swift"; sourceTree = "<group>"; };
 		1C78082426EA720600DC5B12 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */,
 				1C235D0026EB3DC50099937D /* DiceController.swift */,
 				1CD351E226EB616700CCFD1B /* GameController.swift */,
+				1C71847926EB9D9B002F6743 /* GameLogicController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				1CA0B97F26E8FA6100FEAE85 /* ViewController.swift in Sources */,
 				1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */,
 				1C78082526EA720600DC5B12 /* PlayerController.swift in Sources */,
+				1C71847A26EB9D9B002F6743 /* GameLogicController.swift in Sources */,
 				1C00DEA926E8FFC10058790B /* LudoBoardController.swift in Sources */,
 				1C238A8B248EA85F005279BF /* Players.swift in Sources */,
 				1C8FD9222482676000FD5A5B /* ViewController-Copy.swift in Sources */,

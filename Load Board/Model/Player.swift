@@ -38,7 +38,7 @@ struct Player
                     if let key = animationNode.animationKeys.first
                     {
                         animationKey = key
-                        print("🔑:\(key) INITIALISED!")
+//                        print("🔑:\(key) INITIALISED!")
                     }
                     
                     //fetch animation player

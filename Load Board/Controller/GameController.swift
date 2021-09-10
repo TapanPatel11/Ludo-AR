@@ -15,7 +15,7 @@ struct GameController
     var ludoBoardManager:LudoBoardController
     var diceManager:DiceController
     var playerManager:PlayerController
-    var whoseTurn : Turn
+    static var whoseTurn : Turn = Turn.Dice
     enum Turn : String
     {
         case Red = "RedArmy"
@@ -23,12 +23,10 @@ struct GameController
         case Dice = "Dice"
     }
     init(mainNode:SCNNode) {
-        whoseTurn = Turn.Green
+//        whoseTurn = Turn.Dice
         ludoBoardManager = LudoBoardController()
-        ludoBoardManager.initializeLudoBoard(withNode: mainNode)
-        
+        ludoBoardManager.initializeLudoBoard(withNode: mainNode)        
         diceManager = DiceController(ludoBoard: ludoBoardManager.ludoBoard)
-        
         playerManager = PlayerController()
         playerManager.createRedArmy(ludoBoard: ludoBoardManager.ludoBoard)
         playerManager.createGreenArmy(ludoBoard: ludoBoardManager.ludoBoard)
@@ -36,5 +34,10 @@ struct GameController
     mutating  func movePlayer(army : String, playerName : String) //RedArmy , RedArmy1, 2
     {
         playerManager.MoveThatPlayers(Army: army, playerName: playerName, diceNumber: diceManager.diceNumber)
+    }
+    
+   mutating func removePlayerFromHome(army : String, playerName : String)
+    {
+        
     }
 }

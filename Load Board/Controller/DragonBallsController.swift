@@ -49,7 +49,7 @@ struct DragonBallsController
     {
         let prevIndex = DragonBallsController.lastDragonBall
 
-        print("\(dragonBalls[prevIndex].name!) should rotate and ball#\(dragonBalls[nextBallIndex].name!) should show")
+//        print("\(dragonBalls[prevIndex].name!) should rotate and ball#\(dragonBalls[nextBallIndex].name!) should show")
                 dragonBalls[prevIndex].runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 22, z: 0, duration: 0.2)))
         dragonBalls[prevIndex].runAction(SCNAction.scale(to: CGFloat.zero, duration: 0.3)){ [self] in
             self.dragonBalls[prevIndex].isHidden = true
