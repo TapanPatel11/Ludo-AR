@@ -11,7 +11,7 @@ import ARKit
 import SceneKit
 struct DiceController
 {
-     var rollDice = true
+    var rollDice = true
     var diceNumber = 1
     var dragonBallManager : DragonBallsController
     
@@ -22,6 +22,15 @@ struct DiceController
     func nodeTappedIsDragonballs(tappedNode : String) -> Bool
     {
         print("node tapped is : \(tappedNode)")
-       return Constants.allDragonBalls.contains(tappedNode) ?  true :  false
+        return Constants.allDragonBalls.contains(tappedNode) ?  true :  false
+    }
+    
+    mutating func runDice(randomDiceNumber : Int)
+    {
+        print("Dice number : \(randomDiceNumber)")
+        diceNumber = randomDiceNumber-1
+        dragonBallManager.animateBall(nextBallIndex: diceNumber)
+        
+
     }
 }

@@ -13,6 +13,7 @@ import SceneKit
 struct DragonBallsController
 {
     static var lastDragonBall:Int = 1
+    
     var loadedDragonBalls = false
     var dragonBalls:[SCNNode]
     init(with ludoBoardNode:SCNNode)
@@ -25,6 +26,7 @@ struct DragonBallsController
             {
                 ballNode.position = SCNVector3(0,0.1,0)
                 ballNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
+                ballNode.isHidden = true
                 dragonBalls += [ballNode]
             }
             else
@@ -38,8 +40,29 @@ struct DragonBallsController
             ludoBoardNode.addChildNode(ball)
             // print("\(ball.name!) added to scene")
         }
+        dragonBalls[DragonBallsController.lastDragonBall].isHidden = false
         
         
+    }
+    
+    mutating func animateBall(nextBallIndex:Int)
+    {
+        let prevIndex = DragonBallsController.lastDragonBall
+
+        print("\(dragonBalls[prevIndex].name!) should rotate and ball#\(dragonBalls[nextBallIndex].name!) should show")
+                dragonBalls[prevIndex].runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 22, z: 0, duration: 0.2)))
+        dragonBalls[prevIndex].runAction(SCNAction.scale(to: CGFloat.zero, duration: 0.3)){ [self] in
+            self.dragonBalls[prevIndex].isHidden = true
+            self.dragonBalls[nextBallIndex].scale = SCNVector3Zero
+            self.dragonBalls[nextBallIndex].isHidden = false
+            self.dragonBalls[nextBallIndex].runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 22, z: 0, duration: 0.2)))
+            self.dragonBalls[nextBallIndex].runAction(SCNAction.scale(to: 0.5, duration: 0.3))
+                    {
+                self.dragonBalls[nextBallIndex].removeAllActions()
+                        DragonBallsController.lastDragonBall = nextBallIndex
+
+                    }
+                }
     }
     
     

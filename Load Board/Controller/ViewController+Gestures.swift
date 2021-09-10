@@ -96,9 +96,7 @@ extension ViewController
                 if let ballName = tapResultNode.name, diceManager!.nodeTappedIsDragonballs(tappedNode: ballName)
                 {
                  
-               
-                    print("DIce : \(Int.randomDiceNumber)")
-                
+                    diceManager?.runDice(randomDiceNumber: Int.randomDiceNumber)                
                 }
             }
         }
