@@ -27,7 +27,20 @@ struct Constants
         static let gokuChilds = "GOKU"
         static let KidBuu = "KidBuRootNode"
         static let KidAnimatedNode = "KidBuAnimationNode"
+        static let KidJumpAnimatedNode = "KidBuAnimationNode1"
         static let kidChilds = "Bu_Bu_0"
+    }
+    
+    struct AnimationKeys {
+        
+      static  let kidBu = ["unnamed animation #0","unnamed animation #1"]
+      static  let goku = ["unnamed animation #0"]
+       
+
+    }
+    struct AnimationNodes {
+        static let kidBu = ["KidBuAnimationNode","KidBuAnimationNode1"]
+        static let goku = ["GOKU_ANIMATION"]
     }
     static let allDragonBalls = ["Dragon_Balls_07",
                           "Dragon_Balls_01",

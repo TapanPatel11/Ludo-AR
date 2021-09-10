@@ -33,7 +33,7 @@ struct GameController
     }
     mutating  func movePlayer(army : String, playerName : String) //RedArmy , RedArmy1, 2
     {
-        playerManager.MoveThatPlayers(Army: army, playerName: playerName, diceNumber: diceManager.diceNumber)
+//        playerManager.MoveThatPlayers(Army: army, playerName: playerName, diceNumber: diceManager.diceNumber)
     }
     
    mutating func removePlayerFromHome(army : String, playerName : String)

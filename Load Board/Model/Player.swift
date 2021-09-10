@@ -20,39 +20,79 @@ struct Player
     var playerKeyDict = Dictionary<String, String>()
     var playerAnimationDict = Dictionary<String, SCNAnimationPlayer>()
     var stepLogDict = Dictionary<Int, Any>()
-    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String,animatedNodeName:String,childNamesToBeReplaced:String) -> (SCNNode?,String?,SCNAnimationPlayer?)?
+    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String,animatedNodeName:String,childNamesToBeReplaced:String) -> (SCNNode?,[String]?,[SCNAnimationPlayer]?)?
     {
-        var animationKey :String?
-        var animationPlayer :SCNAnimationPlayer?
+        var animationKey :[String]?
+        var animationPlayer :[SCNAnimationPlayer]?
         var node:SCNNode?
         
         if let animatedScene = SCNScene(named: Scene)
         {
             //fetch animation node
+//            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false) // KID
+//            {
+//
+//                if let animationNode = animatedScene.rootNode.childNode(withName: animatedNodeName, recursively: true)
+//                {
+//                    //fetch animation key
+//
+//                        if let key = animationNode.animationKeys.first
+//                        {
+//                            animationKey = key
+//                            print("\(ArmyType)->🔑:\(key) INITIALISED!")
+//                        }
+//
+//                        //fetch animation player
+//                        if let player = animationNode.animationPlayer(forKey: animationKey!)
+//                        {
+//
+//                            animationPlayer = player
+//                            nodeToAnimate.addAnimationPlayer(animationPlayer!, forKey: animationKey)
+//                            nodeToAnimate.animationPlayer(forKey: animationKey!)!.stop()
+//                        }
+//
+//                }
+            var newAnimationNodes = [String]()
+            if ArmyType == Constants.Army.green
+            {
+                newAnimationNodes = Constants.AnimationNodes.goku
+            }
+            else
+            {
+                newAnimationNodes = Constants.AnimationNodes.kidBu
+            }
+            
             if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false) // KID
             {
                 
-                if let animationNode = animatedScene.rootNode.childNode(withName: animatedNodeName, recursively: true)
+                for newAnimationNode in newAnimationNodes
                 {
-                    //fetch animation key
-                    if let key = animationNode.animationKeys.first
+                    if let animationNode = animatedScene.rootNode.childNode(withName: newAnimationNode, recursively: true)
                     {
-                        animationKey = key
-//                        print("🔑:\(key) INITIALISED!")
-                    }
-                    
-                    //fetch animation player
-                    if let player = animationNode.animationPlayer(forKey: animationKey!)
-                    {
+                        //fetch animation key
                         
-                        animationPlayer = player
-                        nodeToAnimate.addAnimationPlayer(animationPlayer!, forKey: animationKey)
-                        nodeToAnimate.animationPlayer(forKey: animationKey!)!.stop()
+                        if let key = animationNode.animationKeys.first
+                        {
+                            animationKey?.append(key)
+                            print("\(ArmyType)->🔑:\(key) INITIALISED!")
+                            //fetch animation player
+                            if let player = animationNode.animationPlayer(forKey: key)
+                            {
+                                
+                                animationPlayer?.append(player)
+                                nodeToAnimate.addAnimationPlayer(player, forKey: key)
+                                nodeToAnimate.animationPlayer(forKey: key)!.stop()
+                            }
+                        }
+                        
+                        
                     }
                 }
-                //rename all childs except animation node 
+            
+                
+                //rename all childs except animation node
                 nodeToAnimate.enumerateChildNodes { (child, nil) in
-                    if child.name != nil, child.name != animatedNodeName
+                    if child.name != nil, !newAnimationNodes.contains(child.name!)
                     {
                         child.name = "\(ArmyType)\(number)"
                     }
@@ -72,11 +112,13 @@ struct Player
         playerNode = SCNNode()
         if  let animationSetting = fetchAnimationSettings(position: position, ArmyType: ArmyType, number: number, Scene: Scene, NodeName: NodeName, animatedNodeName: animatedNode, childNamesToBeReplaced: childNamesToBeReplaced)
         {
-            if let animatedNode = animationSetting.0, let animationKey = animationSetting.1, let animtionPlayer = animationSetting.2
+            if let animatedNode = animationSetting.0
+            //, let animationKey = animationSetting.1, let animtionPlayer = animationSetting.2
             {
+                
                 playerNode  = animatedNode
-                playerKeyDict.updateValue(animationKey, forKey: ArmyType)
-                playerAnimationDict.updateValue(animtionPlayer, forKey: ArmyType)
+//                playerKeyDict.updateValue(animationKey, forKey: ArmyType)
+//                playerAnimationDict.updateValue(animtionPlayer, forKey: ArmyType)
                 initialiseDict(ludoBoard: ludoBoard,ArmyType: ArmyType)
                 playerNumber = number
                 isAtHome = true
@@ -84,7 +126,7 @@ struct Player
                 self.ArmyType = ArmyType
                 hasAnimation = true
                 
-              //  print("\(ArmyType)#\(playerNumber!) successfully initialized")
+                print("\(ArmyType)#\(playerNumber!) successfully initialized")
             }
         }
     }

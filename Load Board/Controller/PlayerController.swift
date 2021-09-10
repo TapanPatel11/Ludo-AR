@@ -64,14 +64,7 @@ struct PlayerController {
             
         }
     }
-    
-    func animatePlayer(player:Player)
-    {
-        if player.hasAnimation!
-        {
-            player.playerNode?.animationPlayer(forKey: player.playerKeyDict[player.ArmyType!]!)?.play()
-        }
-    }
+   
     func switchTurns()
     {
         switch GameController.whoseTurn {
@@ -97,7 +90,7 @@ struct PlayerController {
             }
             else
             {
-               // !6 - > anyPlayerOut = yes -> let user tap on its player -> user taps on a home player
+                // !6 - > anyPlayerOut = yes -> let user tap on its player -> user taps on a home player
                 // but its not six so cant move
                 // so tell user to choose its player again
                 print("Cant move \(tempPlayer.playerNode!.name!), try another player")
@@ -111,7 +104,7 @@ struct PlayerController {
             {
                 tempPlayer.stepsTaken! += diceNumber
                 GameController.whoseTurn = .Dice
-
+                
             }
             else
             {
@@ -119,57 +112,73 @@ struct PlayerController {
                 // player is moved -> so change turns and roll dice
                 tempPlayer.stepsTaken! += diceNumber
                 GameController.whoseTurn = .Dice
-               // switchTurns()
+                // switchTurns()
             }
         }
         return tempPlayer
     }
     
+    func animatePlayer(player:Player, withKey key:String)
+    {
+        if player.hasAnimation!
+        {
+            print("Key : \(key)")
+            //            player.playerNode?.animationPlayer(forKey: player.playerKeyDict[player.ArmyType!]!)?.play()
+            player.playerNode?.animationPlayer(forKey: key)?.speed = 1.5
+            player.playerNode?.animationPlayer(forKey: key)?.play()
+            
+        }
+    }
     mutating func getPlayerOutOfHome(player:Player, Army : String)
     {
         if Army == Constants.Army.green
         {
-               // animatePlayer(player: greenArmy[playerIndex])
-            animatePlayer(player: player)
+            // animatePlayer(player: greenArmy[playerIndex])
+            animatePlayer(player: player, withKey: player.playerKeyDict[Army]!)
             player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.115,0.01,-0.02), duration: 1), completionHandler: {
                 print("Animation : Player moved out of home ")
                 player.playerNode?.animationPlayer(forKey: player.playerKeyDict[Army]!)?.stop()
                 GameController.whoseTurn = .Dice
-
+                
             })
-           
+            
         }
         if Army == Constants.Army.red
         {
-            animatePlayer(player: player)
-            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.02,0.01,0.11), duration: 0.5), completionHandler: {
-                print("Animation : Player moved out of home ")
-                player.playerNode?.animationPlayer(forKey: player.playerKeyDict[Army]!)?.stop()
-                GameController.whoseTurn = .Dice
+            player.playerNode?.eulerAngles.y = .pi/2
+            animatePlayer(player: player, withKey: Constants.AnimationKeys.kidBu[1])
+            
+            
+            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.02,0.01,0.11), duration: 1.4), completionHandler: {
+                            print("Animation : Player moved out of home ")
+                            player.playerNode?.animationPlayer(forKey: Constants.AnimationKeys.kidBu[1])?.stop()
+                player.playerNode?.eulerAngles.y += .pi/2
 
-            })
+                            GameController.whoseTurn = .Dice
+            
+                        })
             
         }
     }
     
-    mutating  func MoveThatPlayers(Army:String, playerName : String, diceNumber:Int)
-    {
-        //!!!!!!!!beaware of last turn here
-        let playerIndex = playerName.last!.wholeNumberValue! - 1
-        if Army == Constants.Army.green
-        {
-                animatePlayer(player: greenArmy[playerIndex])
-        }
-        if Army == Constants.Army.red
-        {
-            
-            if redArmy[playerIndex].isAtHome!//, diceNumber == 6
-            {
-                animatePlayer(player: redArmy[playerIndex])
-               
-            }
-        }
-        
-    }
+    //    mutating  func MoveThatPlayers(Army:String, playerName : String, diceNumber:Int)
+    //    {
+    //        //!!!!!!!!beaware of last turn here
+    //        let playerIndex = playerName.last!.wholeNumberValue! - 1
+    //        if Army == Constants.Army.green
+    //        {
+    //            animatePlayer(player: greenArmy[playerIndex], withKey: Constants.AnimationKeys.kidWalkAnimation)
+    //        }
+    //        if Army == Constants.Army.red
+    //        {
+    //
+    //            if redArmy[playerIndex].isAtHome!//, diceNumber == 6
+    //            {
+    //                animatePlayer(player: redArmy[playerIndex], withKey: Constants.AnimationKeys.kidWalkAnimation)
+    //
+    //            }
+    //        }
+    //
+    //    }
     
 }
