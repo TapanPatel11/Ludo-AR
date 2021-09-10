@@ -29,8 +29,9 @@ struct Player
         if let animatedScene = SCNScene(named: Scene)
         {
             //fetch animation node
-            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false)
+            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false) // KID
             {
+                
                 if let animationNode = animatedScene.rootNode.childNode(withName: animatedNodeName, recursively: true)
                 {
                     //fetch animation key
@@ -49,12 +50,14 @@ struct Player
                         nodeToAnimate.animationPlayer(forKey: animationKey!)!.stop()
                     }
                 }
+                //rename all childs except animation node 
                 nodeToAnimate.enumerateChildNodes { (child, nil) in
-                    if child.name == childNamesToBeReplaced
+                    if child.name != nil, child.name != animatedNodeName
                     {
                         child.name = "\(ArmyType)\(number)"
                     }
                 }
+               
                 nodeToAnimate.position = position
                 nodeToAnimate.position.y += 0.01
                 nodeToAnimate.name = "\(ArmyType)\(number)"

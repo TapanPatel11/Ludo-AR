@@ -15,7 +15,7 @@ struct DragonBallsController
     static var lastDragonBall:Int = 1
     var loadedDragonBalls = false
     var dragonBalls:[SCNNode]
-    init(with ludoBoardNode:SCNNode,and position:SCNVector3, addInScene sceneView : ARSCNView)
+    init(with ludoBoardNode:SCNNode)
     {
         dragonBalls = [SCNNode]()
         guard let DBScene = SCNScene(named: Constants.Scenes.DragonBallScene) else {return}
@@ -23,15 +23,9 @@ struct DragonBallsController
         {
             if let ballNode = DBScene.rootNode.childNode(withName: "\(Constants.Nodes.DragonBallNode)\(i)", recursively: false)
             {
-//                ballNode.isHidden = false
-//                ballNode.position = position
-//                ballNode.position.y = position.y + 0.05
                 ballNode.position = SCNVector3(0,0.1,0)
                 ballNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
-                
                 dragonBalls += [ballNode]
-               // print("\(ballNode.name!) added to arrays")
-
             }
             else
             {
@@ -42,10 +36,10 @@ struct DragonBallsController
         for ball in dragonBalls
         {
             ludoBoardNode.addChildNode(ball)
-           // print("\(ball.name!) added to scene")
+            // print("\(ball.name!) added to scene")
         }
         
-     
+        
     }
     
     

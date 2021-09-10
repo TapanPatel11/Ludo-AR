@@ -11,11 +11,28 @@ import ARKit
 import SceneKit
 extension ViewController :  ARSCNViewDelegate ,SCNAnimationProtocol
 {
+    func addShadow()
+    {
+        // DIRECTIONAL LIGHT for `primary light rays` simulation
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light!.type = .directional
+        lightNode.light!.castsShadow = true
+        lightNode.light!.shadowMode = .deferred
+        lightNode.light!.categoryBitMask = -1
+        lightNode.light!.automaticallyAdjustsShadowProjection = true
+        //lightNode.light!.maximumShadowDistance = 11000
+        lightNode.position = SCNVector3(x: 0, y: -5000, z: 0)
+        lightNode.rotation = SCNVector4(x: -1, y: 0, z: 0, w: .pi/2)
+        sceneView.scene.rootNode.addChildNode(lightNode)
+    }
     
     func configureSceneView(trackPlanes planeDetection:Bool)
     {
         let configuration = ARWorldTrackingConfiguration()
         sceneView.showsStatistics = true
+        configuration.environmentTexturing = .automatic
+      //  addShadow()
         sceneView.debugOptions = [.showFeaturePoints,.showFeaturePoints]
         if planeDetection
         {
@@ -41,7 +58,7 @@ extension ViewController :  ARSCNViewDelegate ,SCNAnimationProtocol
             
             // 3
             plane.materials.first?.diffuse.contents = UIColor.red
-            plane.materials.first?.transparency = 0.2
+            plane.materials.first?.transparency = 0
             
             // 4
             let planeNode = SCNNode(geometry: plane)

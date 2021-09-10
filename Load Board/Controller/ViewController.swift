@@ -13,9 +13,11 @@ import ARKit
 class ViewController: UIViewController{
     
     @IBOutlet var sceneView: ARSCNView!
-    
+    var PCoordx: Float = 0.0
+    var PCoordy: Float = 0.0
+    var PCoordz: Float = 0.0
     var ludoBoardManager = LudoBoardController()
-    var dragonBallManager:DragonBallsController?
+    var diceManager:DiceController?
     var playerManager = PlayerController()
     var mainNode :SCNNode?
     
@@ -31,9 +33,11 @@ class ViewController: UIViewController{
         }
         sceneView.scene = scene
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        sceneView.addGestureRecognizer(tapGesture)
-        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(with:)))
+        
+        sceneView.addGestureRecognizer(tapGesture)
+        sceneView.addGestureRecognizer(panGesture)
         sceneView.addGestureRecognizer(pinchGesture)
     }
     
@@ -57,6 +61,10 @@ class ViewController: UIViewController{
 extension Int {
     
     var degreesToRadians: Double { return Double(self) * .pi/180}
+    static var randomDiceNumber : Int
+    {
+        return Int(arc4random_uniform(6) + 1)
+    }
 }
 
 extension Float {

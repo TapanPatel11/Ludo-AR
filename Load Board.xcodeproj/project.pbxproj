@@ -10,6 +10,7 @@
 		1C00DEA926E8FFC10058790B /* LudoBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEA826E8FFC10058790B /* LudoBoardController.swift */; };
 		1C00DEAC26E900450058790B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEAB26E900450058790B /* Constants.swift */; };
 		1C00DEAF26E923850058790B /* DragonBallsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00DEAE26E923850058790B /* DragonBallsController.swift */; };
+		1C235D0126EB3DC50099937D /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C235D0026EB3DC50099937D /* DiceController.swift */; };
 		1C238A8B248EA85F005279BF /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C238A8A248EA85F005279BF /* Players.swift */; };
 		1C6D83E326E7BA0C006C1B67 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D83E226E7BA0C006C1B67 /* Player.swift */; };
 		1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */; };
@@ -29,6 +30,7 @@
 		1C00DEA826E8FFC10058790B /* LudoBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudoBoardController.swift; sourceTree = "<group>"; };
 		1C00DEAB26E900450058790B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C00DEAE26E923850058790B /* DragonBallsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallsController.swift; sourceTree = "<group>"; };
+		1C235D0026EB3DC50099937D /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		1C238A8A248EA85F005279BF /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1C6D83E226E7BA0C006C1B67 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Gestures.swift"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */,
 				1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */,
 				1C78082426EA720600DC5B12 /* PlayerController.swift */,
+				1C235D0026EB3DC50099937D /* DiceController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				1C00DEAF26E923850058790B /* DragonBallsController.swift in Sources */,
 				1C78082226EA639600DC5B12 /* ViewController+ARSCNView.swift in Sources */,
 				1C8FD91E2482676000FD5A5B /* AppDelegate.swift in Sources */,
+				1C235D0126EB3DC50099937D /* DiceController.swift in Sources */,
 				1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */,
 				1C00DEAC26E900450058790B /* Constants.swift in Sources */,
 			);

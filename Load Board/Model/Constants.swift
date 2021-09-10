@@ -16,7 +16,7 @@ struct Constants
         static let DragonBallScene = "art.scnassets/Dragon.scn"
         static let KidBuuScene = "art.scnassets/KID.scn"
         static let gokuScene = "art.scnassets/goku.scn"
-
+        
     }
     struct Nodes {
         static let LudoBoardNode = "LudoRootNode"
@@ -28,8 +28,15 @@ struct Constants
         static let KidBuu = "KID"
         static let KidAnimatedNode = "skeleton"
         static let kidChilds = "Bu_Bu_0"
-
     }
+    static let allDragonBalls = ["Dragon_Balls_07",
+                          "Dragon_Balls_01",
+                          "Dragon_Balls_02",
+                          "Dragon_Balls_03",
+                          "Dragon_Balls_04",
+                          "Dragon_Balls_05",
+                          "Dragon_Balls_06"]
+    
     struct Army {
         static let red = "RedArmy"
         static let green = "GreenArmy"

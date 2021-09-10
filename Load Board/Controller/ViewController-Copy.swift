@@ -214,7 +214,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
     
     
     
-    func runDice(vertical:Int, horizontal:Int)
+    func runDice()
     {
         let ballIndex = DiceNumber-1
         let node = Dragonballs[previousBall-1]
@@ -351,7 +351,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
                 if !resultsOf3dTap.isEmpty
                 {
                     guard let tapResultNode = resultsOf3dTap.first?.node else {return}
-                    if tapResultNode.name == "Dragon_Balls_07" ||
+                    if tapResultNode.name ==  "Dragon_Balls_07" ||
                         tapResultNode.name == "Dragon_Balls_01" ||
                         tapResultNode.name == "Dragon_Balls_02" ||
                         tapResultNode.name == "Dragon_Balls_03" ||
@@ -367,12 +367,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
                         print("Random Number is : \(randomDiceNumber)")
                         switch randomDiceNumber
                         {
-                        case 1 : runDice(vertical: 180*4, horizontal: 180*4)
-                        case 2 : runDice(vertical: 360*6, horizontal: 90*13)
-                        case 3 : runDice(vertical: -90*13, horizontal: 360*6)
-                        case 4 : runDice(vertical: 90*13, horizontal: 360*6)
-                        case 5 : runDice(vertical: 360*6, horizontal: 90*11)
-                        case 6 : runDice(vertical: 360*6, horizontal: 90*10)
+                        case 1...6: runDice()
                         default:
                             return
                         }
