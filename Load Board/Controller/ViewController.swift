@@ -16,9 +16,10 @@ class ViewController: UIViewController{
     var PCoordx: Float = 0.0
     var PCoordy: Float = 0.0
     var PCoordz: Float = 0.0
-    var ludoBoardManager = LudoBoardController()
-    var diceManager:DiceController?
-    var playerManager = PlayerController()
+//    var ludoBoardManager = LudoBoardController()
+//    var diceManager:DiceController?
+//    var playerManager = PlayerController()
+    var GameManager:GameController?
     var mainNode :SCNNode?
     
 //MARK: - ViewDidLoad
@@ -41,8 +42,6 @@ class ViewController: UIViewController{
         sceneView.addGestureRecognizer(pinchGesture)
     }
     
-    
- 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

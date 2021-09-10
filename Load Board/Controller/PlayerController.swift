@@ -23,17 +23,16 @@ struct PlayerController {
     {
         //    let RedArmyRootNode = SCNNode()
         
-        let player1 = Player(ludoBoard: ludoBoard, position: SCNVector3(-0.11,0,0.1),
+        let player1 = Player(ludoBoard: ludoBoard, position: SCNVector3(-0.1,0,0.1),
                              ArmyType: Constants.Army.red, number: 1, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
-        
         //x: -0.07, y: 0, z: 0.067
         let player2 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.1),ArmyType: Constants.Army.red, number: 2, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
-        
+
         //x: -0.1, y: 0, z: 0.067
         let player3 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.07),ArmyType: Constants.Army.red, number: 3, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
-        
+
         //x: -0.1, y: 0, z: 0.1
-        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.11,0,0.07), ArmyType: Constants.Army.red, number: 4, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
+        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.1,0,0.07), ArmyType: Constants.Army.red, number: 4, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
         redArmy += [player1,player2,player3,player4]
         for redPlayer in redArmy
         {
@@ -64,6 +63,46 @@ struct PlayerController {
             
         }
     }
+    //GreenArmy , GreenArmy1,           2
     
+    
+    mutating  func MoveThatPlayers(Army:String, playerName : String, diceNumber:Int)
+    {
+       
+            let playerIndex = playerName.last!.wholeNumberValue! - 1
+           // print(playerIndex)
+        if Army == Constants.Army.green
+        {
+            
+            if greenArmy[playerIndex].isAtHome!//, diceNumber == 6
+            {
+                if greenArmy[playerIndex].hasAnimation!
+                {
+                    
+                    print("animation key : \(greenArmy[playerIndex].playerKeyDict[Army]!)")
+                    greenArmy[playerIndex].playerNode?.animationPlayer(forKey: greenArmy[playerIndex].playerKeyDict[Army]!)?.play()
+                    greenArmy[playerIndex].isAtHome = false
+                    greenArmy[playerIndex].stepsTaken = 1
+                }
+            }
+        }
+        if Army == Constants.Army.red
+        {
+            
+            if redArmy[playerIndex].isAtHome!//, diceNumber == 6
+            {
+                if redArmy[playerIndex].hasAnimation!
+                {
+                    
+//                    print("animation key : \(redArmy[playerIndex].playerKeyDict[Army]!)")
+                    
+                    redArmy[playerIndex].playerNode?.animationPlayer(forKey: redArmy[playerIndex].playerKeyDict[Army]!)?.play()
+                    redArmy[playerIndex].isAtHome = false
+                    redArmy[playerIndex].stepsTaken = 1
+                }
+            }
+        }
+        
+    }
     
 }

@@ -70,7 +70,7 @@ extension ViewController :  ARSCNViewDelegate ,SCNAnimationProtocol
             planeNode.position = SCNVector3(x,y,z)
             planeNode.eulerAngles.x = -.pi / 2
             
-            // 6
+            //MARK: - Main node initialized
             mainNode = planeNode
             sceneView.scene.rootNode.addChildNode(mainNode!)
             node.name = Constants.Nodes.detectedNode

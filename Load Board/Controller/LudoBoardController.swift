@@ -20,39 +20,29 @@ struct LudoBoardController
     }
     
     mutating func prepare(_ objects: [Any],
-    completionHandler: ((Bool) -> Void)? = nil)
+                          completionHandler: ((Bool) -> Void)? = nil)
     {
         var boardNode = SCNNode()
         if let ludoScene = SCNScene(named: Constants.Scenes.ludoBoardScene)
         {
             boardNode = ludoScene.rootNode.childNode(withName: Constants.Nodes.LudoBoardNode, recursively: true)!
-           ludoBoard = boardNode
+            ludoBoard = boardNode
             ludoBoard.name = "LudoBoardNode"
         }
     }
     
-    mutating func initializeLudoBoard(withNode node:SCNNode,withPosition position:SCNVector3)
+    mutating func initializeLudoBoard(withNode node:SCNNode)
     {
         if !isBoardLoaded
         {
             
-            ludoBoard.position = position//SCNVector3(anchor.center.x, 0, anchor.center.z)
+            ludoBoard.position = node.position
             node.addChildNode(self.ludoBoard)
-            isBoardLoaded=true
-            
-           
-            print("Board Loaded")
+            isBoardLoaded=true           
         }
         else{
             print("Not loaded")
         }
     }
     
-    mutating func initializeLudoBoard(withPosition position:SCNVector3)
-    {
-       
-            ludoBoard.position = position
-            isBoardLoaded=true
-            print("Board Loaded")
-    }
 }

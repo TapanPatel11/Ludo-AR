@@ -285,7 +285,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
             player.stepsTaken = 1
             player.move(dice: Int(DiceNumber),
                         stepsTaken: player.stepsTaken,
-                        stepDict: player.stepLogDict, animation: NodeanimationDict[Army]!, key: NodeKeyDict[Army]!, hasAnimations: hasAnimations
+                        stepDict: player.stepLogDict, key: NodeKeyDict[Army]!, hasAnimations: hasAnimations
             )
             player.isAtHome = false
             
@@ -305,7 +305,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
             
             player.move(dice: Int(DiceNumber),
                         stepsTaken: player.stepsTaken,
-                        stepDict: player.stepLogDict, animation: NodeanimationDict[Army]!, key: NodeKeyDict[Army]!, hasAnimations: hasAnimations
+                        stepDict: player.stepLogDict, key: NodeKeyDict[Army]!, hasAnimations: hasAnimations
             )
             rollDice=true
             
@@ -377,7 +377,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
                     {
                         //user didnt rolled the dice and tapped somewhere else by mistake
                         //So he should roll the dice again
-                        print("DICE : \(tapResultNode.name) tapped by mistake")
+                        print("DICE : \(tapResultNode.name!) tapped by mistake")
                         rollDice = true
                     }
                 }
@@ -437,7 +437,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
                             //user tapped somewhere else by mistake
                             //so he should tap the player again
                             rollDice=false
-                            print("RED : \(name) tapped by mistake")
+                            print("RED : \(name!) tapped by mistake")
                             whoseTurnItIs = .RED
                         }
                     case .Green:
@@ -462,7 +462,7 @@ class ViewController_Copy: UIViewController, ARSCNViewDelegate ,SCNAnimationProt
                             //user tapped somewhere else by mistake
                             //so he should tap the player again
                             rollDice=false
-                            print("GREEN : \(name) tapped by mistake")
+                            print("GREEN : \(name!) tapped by mistake")
                             whoseTurnItIs = .Green
                             
                         }

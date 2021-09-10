@@ -96,7 +96,7 @@ class Players
         return combinedAction
     }
     
-    func move(dice:Int,stepsTaken:Int,stepDict:Dictionary<Int, Any>,animation:SCNAnimationPlayer,key:String,hasAnimations:Bool)
+    func move(dice:Int,stepsTaken:Int,stepDict:Dictionary<Int, Any>,key:String,hasAnimations:Bool)
     {
         
         if stepsTaken <= 57

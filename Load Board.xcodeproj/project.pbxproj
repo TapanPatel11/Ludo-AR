@@ -24,6 +24,7 @@
 		1C8FD92A2482676100FD5A5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FD9282482676100FD5A5B /* LaunchScreen.storyboard */; };
 		1CA0B97F26E8FA6100FEAE85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */; };
 		1CA0B98226E8FB6F00FEAE85 /* LudoBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0B98126E8FB6F00FEAE85 /* LudoBoard.swift */; };
+		1CD351E326EB616700CCFD1B /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD351E226EB616700CCFD1B /* GameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1C8FD92B2482676100FD5A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1CA0B98126E8FB6F00FEAE85 /* LudoBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudoBoard.swift; sourceTree = "<group>"; };
+		1CD351E226EB616700CCFD1B /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +109,11 @@
 				1CA0B97E26E8FA6100FEAE85 /* ViewController.swift */,
 				1C00DEA826E8FFC10058790B /* LudoBoardController.swift */,
 				1C00DEAE26E923850058790B /* DragonBallsController.swift */,
-				1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */,
 				1C78082126EA639600DC5B12 /* ViewController+ARSCNView.swift */,
 				1C78082426EA720600DC5B12 /* PlayerController.swift */,
+				1C78081E26EA62AE00DC5B12 /* ViewController+Gestures.swift */,
 				1C235D0026EB3DC50099937D /* DiceController.swift */,
+				1CD351E226EB616700CCFD1B /* GameController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				1C235D0126EB3DC50099937D /* DiceController.swift in Sources */,
 				1C78081F26EA62AE00DC5B12 /* ViewController+Gestures.swift in Sources */,
 				1C00DEAC26E900450058790B /* Constants.swift in Sources */,
+				1CD351E326EB616700CCFD1B /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
