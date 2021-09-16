@@ -25,7 +25,7 @@ struct GameLogicController
     var gameManager : GameController
     init(node:SCNNode) {
         gameManager = GameController(mainNode: node)
-        lastTurn = .Red
+        lastTurn = .Green
     }
     var lastTurn : GameController.Turn
     
@@ -46,7 +46,7 @@ struct GameLogicController
             else
             {
                 print("No One : \(lastTurn.rawValue), first player moved !")
-                handlePlayerMovement(armyType: lastTurn, playerIndex: 0)
+                handlePlayerMovement(armyType: lastTurn, playerIndex: 1)
                 //remove first Player automatically
             }
         }

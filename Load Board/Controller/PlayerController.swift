@@ -25,15 +25,15 @@ struct PlayerController {
         //    let RedArmyRootNode = SCNNode()
         
         let player1 = Player(ludoBoard: ludoBoard, position: SCNVector3(-0.1,0,0.1),
-                             ArmyType: Constants.Army.red, number: 1, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
+                             ArmyType: Constants.Army.red, number: 1, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
         //x: -0.07, y: 0, z: 0.067
-        let player2 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.1),ArmyType: Constants.Army.red, number: 2, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
-        
+        let player2 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.1),ArmyType: Constants.Army.red, number: 2, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Hit, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
+
         //x: -0.1, y: 0, z: 0.067
-        let player3 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.07),ArmyType: Constants.Army.red, number: 3, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
-        
+        let player3 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,0.07),ArmyType: Constants.Army.red, number: 3, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Jiren, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
+
         //x: -0.1, y: 0, z: 0.1
-        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.1,0,0.07), ArmyType: Constants.Army.red, number: 4, Scene: Constants.Scenes.KidBuuScene, NodeName: Constants.Nodes.KidBuu, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
+        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.1,0,0.07), ArmyType: Constants.Army.red, number: 4, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Videl, animatedNode: Constants.Nodes.KidAnimatedNode, childNamesToBeReplaced: Constants.Nodes.kidChilds)
         redArmy += [player1,player2,player3,player4]
         for redPlayer in redArmy
         {
@@ -47,16 +47,16 @@ struct PlayerController {
         //    let RedArmyRootNode = SCNNode()
         
         let player1 = Player(ludoBoard: ludoBoard, position: SCNVector3(-0.1,0,-0.1),
-                             ArmyType: Constants.Army.green, number: 1, Scene: Constants.Scenes.gokuScene, NodeName: Constants.Nodes.goku, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
+                             ArmyType: Constants.Army.green, number: 1, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Kefla, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
         
         //x: -0.07, y: 0, z: 0.067
-        let player2 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.1,0,-0.07),ArmyType:  Constants.Army.green, number: 2, Scene: Constants.Scenes.gokuScene, NodeName: Constants.Nodes.goku, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
+        let player2 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.1,0,-0.07),ArmyType:  Constants.Army.green, number: 2, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Vegito, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
         
         //x: -0.1, y: 0, z: 0.067
-        let player3 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,-0.07),ArmyType:  Constants.Army.green, number: 3, Scene: Constants.Scenes.gokuScene, NodeName: Constants.Nodes.goku, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
+        let player3 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,-0.07),ArmyType:  Constants.Army.green, number: 3, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Bulma, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
         
         //x: -0.1, y: 0, z: 0.1
-        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,-0.1), ArmyType:  Constants.Army.green, number: 4, Scene: Constants.Scenes.gokuScene, NodeName: Constants.Nodes.goku, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
+        let player4 = Player(ludoBoard: ludoBoard, position : SCNVector3(-0.07,0,-0.1), ArmyType:  Constants.Army.green, number: 4, Scene: Constants.Scenes.allPlayers, NodeName: Constants.Nodes.Vegeta, animatedNode: Constants.Nodes.gokuAnimationNode, childNamesToBeReplaced: Constants.Nodes.gokuChilds)
         greenArmy += [player1,player2,player3,player4]
         for greenPlayer in greenArmy
         {
@@ -124,7 +124,7 @@ struct PlayerController {
         {
             print("Key : \(key)")
             //            player.playerNode?.animationPlayer(forKey: player.playerKeyDict[player.ArmyType!]!)?.play()
-            player.playerNode?.animationPlayer(forKey: key)?.speed = 1.5
+            //player.playerNode?.animationPlayer(forKey: key)?.speed = 1.5
             player.playerNode?.animationPlayer(forKey: key)?.play()
             
         }
@@ -133,25 +133,28 @@ struct PlayerController {
     {
         if Army == Constants.Army.green
         {
-            // animatePlayer(player: greenArmy[playerIndex])
-            animatePlayer(player: player, withKey: player.playerKeyDict[Army]!)
-            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.115,0.01,-0.02), duration: 1), completionHandler: {
-                print("Animation : Player moved out of home ")
-                player.playerNode?.animationPlayer(forKey: player.playerKeyDict[Army]!)?.stop()
-                GameController.whoseTurn = .Dice
-                
-            })
+            player.playerNode?.eulerAngles.y = 0
+            animatePlayer(player: player, withKey: Constants.AnimationKeys.commonAnimations[0])
             
+            
+            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.11,0.01,-0.02), duration: 1.3), completionHandler: {
+                            print("Animation : Player moved out of home ")
+                player.playerNode?.eulerAngles.y = .pi/2
+
+                            GameController.whoseTurn = .Dice
+            
+                        })
+
         }
         if Army == Constants.Army.red
         {
             player.playerNode?.eulerAngles.y = .pi/2
-            animatePlayer(player: player, withKey: Constants.AnimationKeys.kidBu[1])
+            animatePlayer(player: player, withKey: Constants.AnimationKeys.commonAnimations[1])
             
             
-            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.02,0.01,0.11), duration: 1.4), completionHandler: {
+            player.playerNode?.runAction(SCNAction.move(to: SCNVector3(-0.02,0.01,0.11), duration: 1.3), completionHandler: {
                             print("Animation : Player moved out of home ")
-                            player.playerNode?.animationPlayer(forKey: Constants.AnimationKeys.kidBu[1])?.stop()
+//                player.playerNode?.animationPlayer(forKey: Constants.AnimationKeys.commonAnimations[1])?.stop()
                 player.playerNode?.eulerAngles.y += .pi/2
 
                             GameController.whoseTurn = .Dice

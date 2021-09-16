@@ -20,7 +20,7 @@ struct Player
     var playerKeyDict = Dictionary<String, String>()
     var playerAnimationDict = Dictionary<String, SCNAnimationPlayer>()
     var stepLogDict = Dictionary<Int, Any>()
-    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String,animatedNodeName:String,childNamesToBeReplaced:String) -> (SCNNode?,[String]?,[SCNAnimationPlayer]?)?
+    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String,childNamesToBeReplaced:String) -> (SCNNode?,[String]?,[SCNAnimationPlayer]?)?
     {
         var animationKey :[String]?
         var animationPlayer :[SCNAnimationPlayer]?
@@ -28,76 +28,63 @@ struct Player
         
         if let animatedScene = SCNScene(named: Scene)
         {
-            //fetch animation node
-//            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false) // KID
-//            {
-//
-//                if let animationNode = animatedScene.rootNode.childNode(withName: animatedNodeName, recursively: true)
-//                {
-//                    //fetch animation key
-//
-//                        if let key = animationNode.animationKeys.first
-//                        {
-//                            animationKey = key
-//                            print("\(ArmyType)->🔑:\(key) INITIALISED!")
-//                        }
-//
-//                        //fetch animation player
-//                        if let player = animationNode.animationPlayer(forKey: animationKey!)
-//                        {
-//
-//                            animationPlayer = player
-//                            nodeToAnimate.addAnimationPlayer(animationPlayer!, forKey: animationKey)
-//                            nodeToAnimate.animationPlayer(forKey: animationKey!)!.stop()
-//                        }
-//
-//                }
-            var newAnimationNodes = [String]()
-            if ArmyType == Constants.Army.green
-            {
-                newAnimationNodes = Constants.AnimationNodes.goku
-            }
-            else
-            {
-                newAnimationNodes = Constants.AnimationNodes.kidBu
-            }
             
-            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false) // KID
+            var newAnimationNodes = Constants.AnimationNodes.commonNodes
+            
+            
+            if let nodeToAnimate = animatedScene.rootNode.childNode(withName: NodeName, recursively: false)
             {
                 
+                print("*****fetching keys for \(nodeToAnimate.name!)******")
                 for newAnimationNode in newAnimationNodes
                 {
-                    if let animationNode = animatedScene.rootNode.childNode(withName: newAnimationNode, recursively: true)
+                    if let animationNode = animatedScene.rootNode.childNode(withName: "\(NodeName)\(newAnimationNode)", recursively: true)
                     {
                         //fetch animation key
+                        print("Animation node name : \(animationNode.name!)")
                         
                         if let key = animationNode.animationKeys.first
                         {
                             animationKey?.append(key)
                             print("\(ArmyType)->🔑:\(key) INITIALISED!")
-                            //fetch animation player
                             if let player = animationNode.animationPlayer(forKey: key)
                             {
                                 
                                 animationPlayer?.append(player)
                                 nodeToAnimate.addAnimationPlayer(player, forKey: key)
-                                nodeToAnimate.animationPlayer(forKey: key)!.stop()
+                                // nodeToAnimate.animationPlayer(forKey: key)!.stop()
+                                // print("Stoping \(key)")
                             }
                         }
                         
                         
                     }
                 }
-            
                 
-                //rename all childs except animation node
-                nodeToAnimate.enumerateChildNodes { (child, nil) in
-                    if child.name != nil, !newAnimationNodes.contains(child.name!)
-                    {
-                        child.name = "\(ArmyType)\(number)"
-                    }
+                
+                //                rename all childs except animation node
+                newAnimationNodes = newAnimationNodes.map { (string)  in
+                    "\(NodeName)\(string)"
                 }
-               
+                
+                for name in newAnimationNodes
+                {
+                    print(name)
+                }
+                nodeToAnimate.enumerateChildNodes { (child, nil) in
+                    if child.name != nil, !newAnimationNodes.contains("\(child.name!)")
+                        {
+//                            print("\(child.name!) -> ")
+                            child.name = "\(ArmyType)\(number)"
+//                            print("\(child.name!)  ")
+//                        else
+//                        {
+//                            print("\(child.name!) not renamed")
+//                        }
+                    }
+                    
+                }
+                
                 nodeToAnimate.position = position
                 nodeToAnimate.position.y += 0.01
                 nodeToAnimate.name = "\(ArmyType)\(number)"
@@ -107,25 +94,33 @@ struct Player
         return (node,animationKey,animationPlayer)
         
     }
+    mutating func stopAllAnimations()
+    {
+        for key in Constants.AnimationNodes.commonNodes
+        {
+            playerNode!.animationPlayer(forKey: key)?.stop()
+        }
+    }
     
     init(ludoBoard:SCNNode, position:SCNVector3, ArmyType:String, number:Int,Scene:String, NodeName: String,animatedNode:String,childNamesToBeReplaced:String) {
         playerNode = SCNNode()
-        if  let animationSetting = fetchAnimationSettings(position: position, ArmyType: ArmyType, number: number, Scene: Scene, NodeName: NodeName, animatedNodeName: animatedNode, childNamesToBeReplaced: childNamesToBeReplaced)
+        
+        if  let animationSetting = fetchAnimationSettings(position: position, ArmyType: ArmyType, number: number, Scene: Scene, NodeName: NodeName, childNamesToBeReplaced: childNamesToBeReplaced)
         {
             if let animatedNode = animationSetting.0
             //, let animationKey = animationSetting.1, let animtionPlayer = animationSetting.2
             {
                 
                 playerNode  = animatedNode
-//                playerKeyDict.updateValue(animationKey, forKey: ArmyType)
-//                playerAnimationDict.updateValue(animtionPlayer, forKey: ArmyType)
+                //                playerKeyDict.updateValue(animationKey, forKey: ArmyType)
+                //                playerAnimationDict.updateValue(animtionPlayer, forKey: ArmyType)
                 initialiseDict(ludoBoard: ludoBoard,ArmyType: ArmyType)
                 playerNumber = number
                 isAtHome = true
                 stepsTaken = 0
                 self.ArmyType = ArmyType
                 hasAnimation = true
-                
+                stopAllAnimations()
                 print("\(ArmyType)#\(playerNumber!) successfully initialized")
             }
         }

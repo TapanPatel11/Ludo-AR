@@ -15,7 +15,10 @@ struct Constants
         static let rootScene = "art.scnassets/RootScene.scn"
         static let DragonBallScene = "art.scnassets/Dragon.scn"
         static let KidBuuScene = "art.scnassets/KidBu.scn"
-        static let gokuScene = "art.scnassets/goku.scn"
+        static let gokuScene = "art.scnassets/BULMA.scn"// goku
+        static let allPlayers = "art.scnassets/ALL_Players.scn"
+        static let JIREN = "art.scnassets/JIREN.scn"
+
         
     }
     struct Nodes {
@@ -25,22 +28,36 @@ struct Constants
         static let goku = "GOKU_ROOT"
         static let gokuAnimationNode = "GOKU_ANIMATION"
         static let gokuChilds = "GOKU"
-        static let KidBuu = "KidBuRootNode"
+        
+        static let KidBuu = "KIDBUU"
+        static let Videl = "VIDEL"
+        static let Jiren = "JIREN"
+        static let Hit = "HIT"
+        
+        static let Kefla = "KEFLA"
+        static let Bulma = "BULMA"
+        static let Vegeta = "VEGETA"
+        static let Vegito = "VEGITO"
+        
         static let KidAnimatedNode = "KidBuAnimationNode"
         static let KidJumpAnimatedNode = "KidBuAnimationNode1"
         static let kidChilds = "Bu_Bu_0"
+        
+        
     }
     
     struct AnimationKeys {
         
       static  let kidBu = ["unnamed animation #0","unnamed animation #1"]
       static  let goku = ["unnamed animation #0"]
+    static let commonAnimations = ["StandardWalk","FrontFlip"]
        
 
     }
     struct AnimationNodes {
         static let kidBu = ["KidBuAnimationNode","KidBuAnimationNode1"]
         static let goku = ["GOKU_ANIMATION"]
+        static let commonNodes = ["StandardWalk","FrontFlip"]
     }
     static let allDragonBalls = ["Dragon_Balls_07",
                           "Dragon_Balls_01",
