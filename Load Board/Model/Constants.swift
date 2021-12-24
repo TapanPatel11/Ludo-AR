@@ -10,6 +10,19 @@ import Foundation
 
 struct Constants
 {
+    
+    struct TakeTurns
+    {
+        static let firstTurn = 5
+        static let secondTurn = 11
+        static let thirdTurn = 13
+        static let fourthTurn = 18
+        static let fifthTurn = 24
+        
+        
+        static let allTurns  = [5...10,11...12,13...17,18...23]
+        
+    }
     struct Scenes {
         static let ludoBoardScene = "art.scnassets/LudoBoard.scn"
         static let rootScene = "art.scnassets/RootScene.scn"
@@ -50,14 +63,14 @@ struct Constants
         
       static  let kidBu = ["unnamed animation #0","unnamed animation #1"]
       static  let goku = ["unnamed animation #0"]
-    static let commonAnimations = ["StandardWalk","FrontFlip"]
+    static let commonAnimations = ["StandardWalk","FrontFlip","Idle"]
        
 
     }
     struct AnimationNodes {
         static let kidBu = ["KidBuAnimationNode","KidBuAnimationNode1"]
         static let goku = ["GOKU_ANIMATION"]
-        static let commonNodes = ["StandardWalk","FrontFlip"]
+        static let commonNodes = ["StandardWalk","FrontFlip","Idle"]
     }
     static let allDragonBalls = ["Dragon_Balls_07",
                           "Dragon_Balls_01",

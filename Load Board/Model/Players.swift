@@ -82,13 +82,6 @@ class Players
             let action = SCNAction.move(to: positionToMoveTo, duration: 0.5)//2
             combinedAction = SCNAction.group([rotation,action])
             
-            
-            
-            
-            
-            
-            
-            
         default:
             combinedAction = SCNAction.move(to: positionToMoveTo, duration: 0.5)//2
         }

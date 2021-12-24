@@ -25,7 +25,7 @@ struct GameLogicController
     var gameManager : GameController
     init(node:SCNNode) {
         gameManager = GameController(mainNode: node)
-        lastTurn = .Green
+        lastTurn = .Red
     }
     var lastTurn : GameController.Turn
     
@@ -77,6 +77,7 @@ struct GameLogicController
             {
                 
                 gameManager.playerManager.redArmy[playerIndex] = gameManager.playerManager.updatePlayerRecord(player: gameManager.playerManager.redArmy[playerIndex], diceNumber: gameManager.diceManager.diceNumber, lastTurn: lastTurn)
+//                gameManager.playerManager.MoveThatPlayers(player: gameManager.playerManager.redArmy[playerIndex] )
                 print("\(gameManager.playerManager.redArmy[playerIndex].playerNode!.name!) moved \((gameManager.playerManager.redArmy[playerIndex].stepsTaken)!) steps")
                switchTurns()
 
@@ -86,6 +87,7 @@ struct GameLogicController
                                 
                 gameManager.playerManager.redArmy[playerIndex] = gameManager.playerManager.updatePlayerRecord(player: gameManager.playerManager.redArmy[playerIndex], diceNumber: gameManager.diceManager.diceNumber, lastTurn: lastTurn)
                 gameManager.playerManager.playersOut[armyType.rawValue] = true
+//                gameManager.playerManager.MoveThatPlayers(player: gameManager.playerManager.redArmy[playerIndex] )
                 print("\(gameManager.playerManager.redArmy[playerIndex].playerNode!.name!) moved \(gameManager.playerManager.redArmy[playerIndex].stepsTaken!) steps")
                 switchTurns()
             }
@@ -94,6 +96,7 @@ struct GameLogicController
             {
                 
                 gameManager.playerManager.greenArmy[playerIndex] = gameManager.playerManager.updatePlayerRecord(player: gameManager.playerManager.greenArmy[playerIndex], diceNumber: gameManager.diceManager.diceNumber, lastTurn: lastTurn)
+//                gameManager.playerManager.MoveThatPlayers(player: gameManager.playerManager.greenArmy[playerIndex] )
                 print("\(gameManager.playerManager.greenArmy[playerIndex].playerNode!.name!) moved \(gameManager.playerManager.greenArmy[playerIndex].stepsTaken!) steps")
                switchTurns()
 
@@ -103,6 +106,7 @@ struct GameLogicController
                                 
                 gameManager.playerManager.greenArmy[playerIndex] = gameManager.playerManager.updatePlayerRecord(player: gameManager.playerManager.greenArmy[playerIndex], diceNumber: gameManager.diceManager.diceNumber, lastTurn: lastTurn)
                 gameManager.playerManager.playersOut[armyType.rawValue] = true
+//                gameManager.playerManager.MoveThatPlayers(player: gameManager.playerManager.greenArmy[playerIndex] )
                 print("\(String(describing: gameManager.playerManager.greenArmy[playerIndex].playerNode!.name)) moved \(gameManager.playerManager.greenArmy[playerIndex].stepsTaken!) steps")
                 switchTurns()
             }

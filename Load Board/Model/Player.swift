@@ -19,8 +19,8 @@ struct Player
     var hasAnimation:Bool?
     var playerKeyDict = Dictionary<String, String>()
     var playerAnimationDict = Dictionary<String, SCNAnimationPlayer>()
-    var stepLogDict = Dictionary<Int, Any>()
-    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String,childNamesToBeReplaced:String) -> (SCNNode?,[String]?,[SCNAnimationPlayer]?)?
+    var stepLogDict = Dictionary<Int, SCNVector3 >()
+    mutating func fetchAnimationSettings(position:SCNVector3, ArmyType:String, number:Int,Scene:String,NodeName: String) -> (SCNNode?,[String]?,[SCNAnimationPlayer]?)?
     {
         var animationKey :[String]?
         var animationPlayer :[SCNAnimationPlayer]?
@@ -102,18 +102,16 @@ struct Player
         }
     }
     
-    init(ludoBoard:SCNNode, position:SCNVector3, ArmyType:String, number:Int,Scene:String, NodeName: String,animatedNode:String,childNamesToBeReplaced:String) {
+    init(ludoBoard:SCNNode, position:SCNVector3, ArmyType:String, number:Int,Scene:String, NodeName: String) {
         playerNode = SCNNode()
         
-        if  let animationSetting = fetchAnimationSettings(position: position, ArmyType: ArmyType, number: number, Scene: Scene, NodeName: NodeName, childNamesToBeReplaced: childNamesToBeReplaced)
+        if  let animationSetting = fetchAnimationSettings(position: position, ArmyType: ArmyType, number: number, Scene: Scene, NodeName: NodeName)
         {
             if let animatedNode = animationSetting.0
-            //, let animationKey = animationSetting.1, let animtionPlayer = animationSetting.2
             {
                 
                 playerNode  = animatedNode
-                //                playerKeyDict.updateValue(animationKey, forKey: ArmyType)
-                //                playerAnimationDict.updateValue(animtionPlayer, forKey: ArmyType)
+
                 initialiseDict(ludoBoard: ludoBoard,ArmyType: ArmyType)
                 playerNumber = number
                 isAtHome = true
@@ -127,109 +125,42 @@ struct Player
     }
     mutating  func initialiseDict(ludoBoard:SCNNode, ArmyType:String)
     {
-        if ArmyType == "RED"
+        if ArmyType == Constants.Army.red
         {
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.02,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.109), forKey: 1)
+            stepLogDict.updateValue(SCNVector3(-0.02,0.01,0.11), forKey: 1) // 0.018
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.02,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.091), forKey: 2)
+            stepLogDict.updateValue(SCNVector3(-0.02,0.01,0.095), forKey: 2)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.02,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.073), forKey: 3)
+            stepLogDict.updateValue(SCNVector3(-0.02,0.01,0.077), forKey: 3)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.02,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.055), forKey: 4)
-            
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.02,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.037), forKey: 5)
-            //=============================================
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.04,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 6)
-            
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.058,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 7)
-            
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.076,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 8)
-            
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.096,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 9)
-            
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.113,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 10)
-            
-            
+            stepLogDict.updateValue(SCNVector3(-0.02,0.01,0.059), forKey: 4)
+            //---------------------first turn--------------------------------
+            stepLogDict.updateValue(SCNVector3(-0.02,0.01,0.041), forKey: 5)
+            stepLogDict.updateValue(SCNVector3(-0.034,0.01,0.015), forKey: 6)
+            stepLogDict.updateValue(SCNVector3(-0.052,0.01,0.015), forKey: 7)
+            stepLogDict.updateValue(SCNVector3(-0.070,0.01,0.015), forKey: 8)
+            stepLogDict.updateValue(SCNVector3(-0.088,0.01,0.015), forKey: 9)
+            stepLogDict.updateValue(SCNVector3(-0.106,0.01,0.015), forKey: 10)
             //------------------------------11-20-------------------------------\\
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.131,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z+0.019), forKey: 11)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 11)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.131,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.001), forKey: 12)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 12)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.131,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 13)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 13)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.113,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 14)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 14)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.095,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 15)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 15)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.077,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 16)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 16)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.059,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 17)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 17)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.041,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.02), forKey: 18)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 18)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.021,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.041), forKey: 19)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 19)
             
-            stepLogDict.updateValue(SCNVector3(
-                                        ludoBoard.position.x-0.021,
-                                        ludoBoard.position.y + 0.01,
-                                        ludoBoard.position.z-0.059), forKey: 20)
+            stepLogDict.updateValue(SCNVector3(-0.124,0.01,0.015), forKey: 20)
             
             stepLogDict.updateValue(SCNVector3(
                                         ludoBoard.position.x-0.021,
@@ -416,7 +347,7 @@ struct Player
                                         ludoBoard.position.y + 0.01,
                                         ludoBoard.position.z+0.002), forKey: 57)
         }
-        else if ArmyType == "GREEN"
+        else if ArmyType == Constants.Army.green
         {
             //Green start from here
             stepLogDict.updateValue(SCNVector3(
